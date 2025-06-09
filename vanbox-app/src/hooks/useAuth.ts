@@ -37,10 +37,14 @@ export const useAuth = () => {
   }, [getUser, supabase.auth, router])
 
   const signInWithGoogle = async () => {
+    const redirectUrl = typeof window !== 'undefined' 
+      ? `${window.location.origin}/auth/callback`
+      : 'https://vanbox.zsun.uk/auth/callback'
+
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${location.origin}/auth/callback`,
+        redirectTo: redirectUrl,
       },
     })
   }
