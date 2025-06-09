@@ -5,13 +5,11 @@ import { useToast } from '@/contexts/ToastContext'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
 import Image from 'next/image'
-import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
   const { user, loading, signInWithGoogle } = useAuth()
   const { showToast } = useToast()
   const router = useRouter()
-  const supabase = createClient()
 
   useEffect(() => {
     if (user && !loading) {

@@ -125,7 +125,7 @@ export default function MainApp() {
     } finally {
       setIsLoadingEntries(false)
     }
-  }, [user, showToast])
+  }, [user, showToast, supabase])
 
   useEffect(() => {
     if (!loading && !user) {
